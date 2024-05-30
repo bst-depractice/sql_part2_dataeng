@@ -116,4 +116,4 @@ Ref: customer.customer_id < customer_purchases.vendor_id
 Ref: product_category.product_category_id < product.product_category_id
 Ref: product.product_id < vendor_inventory.product_id
 Ref: market_date_info.market_date < vendor_inventory.product_id
-
+Ref: booth.booth_number < vendor_booth_assignments.booth_number
