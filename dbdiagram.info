@@ -1,0 +1,119 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+TABLE booth {
+  booth_number int 
+  booth_price_level varchar(45)
+  booth_description varchar(255) 
+  booth_type varchar(45)
+  PRIMARY KEY (booth_number)
+} 
+
+ TABLE customer {
+  customer_id int 
+  customer_first_name varchar(45)
+  customer_last_name varchar(45) 
+  customer_zip varchar(45) 
+  PRIMARY KEY (customer_id)
+}
+
+ TABLE customer_purchases {
+  product_id int 
+  vendor_id int 
+  market_date date 
+  customer_id int 
+  quantity decimal(16,2) 
+  cost_to_customer_per_qty decimal(16,2) 
+  transaction_time time 
+  PRIMARY KEY (product_id,vendor_id,market_date,customer_id,transaction_time)
+}
+
+ TABLE market_date_info {   
+  market_date date 
+  market_day varchar(45) 
+  market_week varchar(45) 
+  market_year varchar(45) 
+  market_start_time varchar(45) 
+  market_end_time varchar(45) 
+  special_notes blob
+  market_season varchar(45) 
+  market_min_temp varchar(200) 
+  market_max_temp varchar(45) 
+  market_rain_flag int 
+  market_snow_flag int 
+  PRIMARY KEY (market_date)
+} 
+
+
+ TABLE product {   
+  product_id int 
+  product_name varchar(45) 
+  product_size varchar(45) 
+  product_category_id int 
+  product_qty_type varchar(45) 
+  PRIMARY KEY (product_id,product_category_id)
+} 
+
+
+ TABLE product_category {   
+  product_category_id int 
+  product_category_name varchar(45) 
+  PRIMARY KEY (product_category_id)
+} 
+
+ TABLE vendor {   
+  vendor_id int 
+  vendor_name varchar(45) 
+  vendor_type varchar(45) 
+  vendor_owner_first_name varchar(45) 
+  vendor_owner_last_name varchar(45) 
+  PRIMARY KEY (vendor_id)
+} 
+
+
+ TABLE vendor_booth_assignments {   
+  vendor_id int 
+  booth_number int 
+  market_date date 
+  PRIMARY KEY (vendor_id,booth_number,market_date)
+} 
+
+
+
+ TABLE vendor_inventory {   
+  market_date date 
+  quantity decimal(16,2) 
+  vendor_id int 
+  product_id int 
+  original_price decimal(16,2) 
+  PRIMARY KEY (product_id,vendor_id,market_date)
+} 
+
+
+ TABLE zip_data {   
+  zip_code_5 char(5) 
+  median_household_income float 
+  percent_high_income float 
+  percent_under_18 float 
+  percent_over_65 float 
+  people_per_sq_mile float 
+  latitude float 
+  longitude float 
+  PRIMARY KEY (zip_code_5)
+} 
+
+Ref: customer.customer_id < customer_purchases.customer_id // many-to-one
+
+Ref: market_date_info.market_date < vendor_booth_assignments.market_date
+Ref: market_date_info.market_date < vendor_inventory.market_date
+Ref: market_date_info.market_date < customer_purchases.market_date
+
+Ref: vendor.vendor_id < vendor_booth_assignments.vendor_id
+Ref: vendor.vendor_id < vendor_inventory.vendor_id
+Ref: vendor.vendor_id < customer_purchases.vendor_id
+Ref: customer.customer_id < customer_purchases.vendor_id
+
+Ref: product_category.product_category_id < product.product_category_id
+Ref: product.product_id < vendor_inventory.product_id
+Ref: market_date_info.market_date < vendor_inventory.product_id
+
