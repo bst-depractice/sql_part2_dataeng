@@ -1,0 +1,6 @@
+1. Let's assume the vendor_inventory table gives the stock level at the beginning of the day. Customer_purchases records the item wise sales. 
+    Build a table to output the following fields. vendor_id 	product_id 	market_date 	sold_out
+    Name the table as 'daily_stock_check'. 
+    The sold_out field can take three values [sold_out, stock_left_over, no_sales]
+    
+
