@@ -6,3 +6,8 @@
 2. Get the total sales made by each vendor, every month in the year 2019.
     Get the report with the following fields. Each month will be a column (in a pivoted form).
     vendor_name, JAN-2019, FEB-2019, ... DEC-2019
+
+3. How does the total_sales_$ by the customer in the weekend (Sat, Sun) compares with the total sales over the rest of the week (M-F) ? Do this study in each week ?
+    Also add an indicator `first_sale_day`, that gives the day when the customer made the first sale of the week. If the customer only comes Friday & saturday to the market, then first_sale_day=friday.
+    Your report should look like below. Monday is the weekstart day. 
+    customer_name, week_start_date, weekend_sales_$, m_f_sales_$, first_sale_day
