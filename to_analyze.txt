@@ -3,4 +3,6 @@
     Name the table as 'daily_stock_check'. 
     The sold_out field can take three values [sold_out, stock_left_over, no_sales]
     
-
+2. Get the total sales made by each vendor, every month in the year 2019.
+    Get the report with the following fields. Each month will be a column (in a pivoted form).
+    vendor_name, JAN-2019, FEB-2019, ... DEC-2019
