@@ -18,5 +18,5 @@ sales = quantity * cost_to_customer_per_qty
     a) Use window functions
     b) Do not use Window funcs, instead use CTE to build the query.
 
-5. Use self-join technique, compare whether each day's sale is more than max of all previous days. 
+5. Use self-join technique, write a query compare whether each day's sale is more than max of all previous days. 
     say day0:$5 day1: $7 day2:$4 day3:$2. Then the result will be day1: n/a day2:yes (is $4>$7), day3: (is $2>$7)  
