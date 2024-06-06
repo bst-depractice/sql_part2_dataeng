@@ -1,3 +1,5 @@
+sales = quantity * cost_to_customer_per_qty
+
 1. Let's assume the vendor_inventory table gives the stock level at the beginning of the day. customer_purchases table captures the item wise sales. 
     Build a table to output the following fields: vendor_id 	product_id 	market_date 	sold_out
     Name the table as 'daily_stock_check'. 
@@ -16,3 +18,5 @@
     a) Use window functions
     b) Do not use Window funcs, instead use CTE to build the query.
 
+5. Use self-join technique, compare whether each day's sale is more than max of all previous days. 
+    say day0:$5 day1: $7 day2:$4 day3:$2. Then the result will be day1: n/a day2:yes (is $4>$7), day3: (is $2>$7)  
