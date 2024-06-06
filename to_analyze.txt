@@ -13,3 +13,6 @@
     customer_name, week_start_date, weekend_sales_$, m_f_sales_$, first_sale_day
 
 4. What % is the share of each product's sale compared to total sales of the vendor in each market day ? Hint: it is sum(sales)/total_sales group by date, vendor, product.
+    a) Use window functions
+    b) Do not use Window funcs, instead use CTE to build the query.
+
